@@ -27,7 +27,6 @@
         .infographic {
             width: 800px;
             background-color: white;
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border-radius: 16px;
             overflow: hidden;
@@ -37,40 +36,32 @@
         }
         
         .header {
-            padding: 30px;
+            padding: 40px;
             text-align: center;
-            background: linear-gradient(135deg, #8a2be2, #5d4ef5, #4facfe);
-            background-size: 200% 200%;
-            animation: gradient-animation 15s ease infinite;
+            background: linear-gradient(135deg, #8a2be2, #5d4ef5);
             color: white;
             position: relative;
-            margin-bottom: 20px;
-        }
-        
-        @keyframes gradient-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            margin-bottom: 40px;
         }
         
         .title {
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 800;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
         
         .subtitle {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 500;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .intro {
-            font-size: 16px;
+            font-size: 18px;
             max-width: 700px;
             margin: 0 auto;
-            line-height: 1.5;
+            line-height: 1.6;
         }
         
         .timeline {
@@ -91,16 +82,8 @@
         
         .step {
             position: relative;
-            margin-bottom: 40px;
-            min-height: 150px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-        
-        .step.visible {
-            opacity: 1;
-            transform: translateY(0);
+            margin-bottom: 60px;
+            min-height: 200px;
         }
         
         /* Content positioning */
@@ -115,40 +98,17 @@
         }
         
         .step-bubble {
-            width: 140px;
-            height: 140px;
-            border-radius: 20px;
+            width: 160px;
+            height: 160px;
+            border-radius: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             position: absolute;
             top: 0;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             z-index: 2;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .step-bubble:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .step-bubble::after {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
-            top: -50%;
-            left: -50%;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .step-bubble:hover::after {
-            opacity: 1;
         }
         
         .step:nth-child(odd) .step-bubble {
@@ -163,28 +123,16 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 12px;
-            transition: all 0.3s ease;
-            transform: scale(1);
-        }
-        
-        .step-bubble:hover .step-icon {
-            transform: scale(1.2) rotate(5deg);
-            background-color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 15px;
         }
         
         .step-icon i {
             font-size: 24px;
             color: white;
-            transition: all 0.3s ease;
-        }
-        
-        .step-bubble:hover .step-icon i {
-            transform: scale(1.1);
         }
         
         .step-title {
@@ -192,7 +140,7 @@
             font-weight: 700;
             color: white;
             text-align: center;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
         
         .step-subtitle {
@@ -202,7 +150,7 @@
         }
         
         .step-content {
-            padding: 20px;
+            padding: 30px;
             background-color: #f9f9f9;
             border-radius: 15px;
             width: 45%;
@@ -211,22 +159,22 @@
         }
         
         .content-title {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             color: #333;
         }
         
         .content-text {
-            font-size: 15px;
-            line-height: 1.5;
+            font-size: 16px;
+            line-height: 1.6;
             color: #666;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         
         .content-list {
             padding-right: 20px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             list-style-position: inside;
         }
         
@@ -236,8 +184,8 @@
         }
         
         .content-list li {
-            margin-bottom: 6px;
-            font-size: 14px;
+            margin-bottom: 8px;
+            font-size: 15px;
             color: #666;
         }
         
@@ -253,42 +201,22 @@
         /* Timeline dots */
         .timeline-dot {
             position: absolute;
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             background-color: white;
-            border: 3px solid #e0e0e0;
-            top: 65px;
+            border: 4px solid #e0e0e0;
+            top: 70px;
             right: 50%;
             transform: translateX(50%);
             z-index: 2;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 0 rgba(79, 172, 254, 0.4);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(79, 172, 254, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(79, 172, 254, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(79, 172, 254, 0);
-            }
-        }
-        
-        .step:hover .timeline-dot {
-            background-color: #4facfe;
-            border-color: white;
         }
         
         /* Connector lines */
         .connector {
             position: absolute;
-            top: 70px;
-            width: 50px;
+            top: 80px;
+            width: 60px;
             height: 3px;
             background-color: #e0e0e0;
             z-index: 1;
@@ -300,80 +228,6 @@
         
         .step:nth-child(even) .connector {
             left: 50%;
-        }
-        
-        /* تنسيق لجدول المقارنة */
-        .comparison-table {
-            width: 100%;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin: 15px 0;
-        }
-        
-        .comparison-row {
-            display: flex;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .comparison-row:last-child {
-            border-bottom: none;
-        }
-        
-        .header-row {
-            background-color: #f5f5f5;
-            font-weight: bold;
-        }
-        
-        .comparison-cell {
-            flex: 1;
-            padding: 10px 12px;
-            font-size: 13px;
-        }
-        
-        .comparison-row:nth-child(even) {
-            background-color: #fafafa;
-        }
-        
-        .comparison-row:hover {
-            background-color: rgba(79, 172, 254, 0.05);
-        }
-        
-        /* تنسيق بطاقات "هل تعلم؟" */
-        .fun-fact {
-            background-color: #fff4e6;
-            border-right: 4px solid #fd7e14;
-            padding: 12px;
-            border-radius: 8px;
-            margin: 15px 0;
-            position: relative;
-        }
-        
-        .fun-fact-icon {
-            position: absolute;
-            top: -12px;
-            right: 12px;
-            width: 24px;
-            height: 24px;
-            background-color: #fd7e14;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-        }
-        
-        .fun-fact-title {
-            margin-top: 3px;
-            margin-bottom: 6px;
-            color: #e67700;
-            font-size: 15px;
-        }
-        
-        .fun-fact-text {
-            font-size: 13px;
-            color: #666;
         }
         
         /* Responsive design */
@@ -389,9 +243,9 @@
             
             .step:nth-child(odd) .step-content,
             .step:nth-child(even) .step-content {
-                margin-right: 90px;
+                margin-right: 100px;
                 margin-left: 0;
-                width: calc(100% - 90px);
+                width: calc(100% - 100px);
                 text-align: right;
             }
             
@@ -399,27 +253,8 @@
             .step:nth-child(even) .step-bubble {
                 right: 0;
                 left: auto;
-                width: 80px;
-                height: 80px;
-            }
-            
-            .step-icon {
-                width: 30px;
-                height: 30px;
-                margin-bottom: 5px;
-            }
-            
-            .step-icon i {
-                font-size: 16px;
-            }
-            
-            .step-title {
-                font-size: 12px;
-                margin-bottom: 2px;
-            }
-            
-            .step-subtitle {
-                font-size: 10px;
+                width: 120px;
+                height: 120px;
             }
             
             .timeline-dot {
@@ -430,15 +265,6 @@
             .connector {
                 display: none;
             }
-            
-            .comparison-row {
-                flex-direction: column;
-            }
-            
-            .comparison-cell {
-                padding: 8px;
-                font-size: 12px;
-            }
         }
     </style>
 </head>
@@ -447,7 +273,7 @@
         <div class="header">
             <h1 class="title">التغيرات الفيزيائية والكيميائية للمادة</h1>
             <h2 class="subtitle">كيف تتغير المواد من حولنا؟</h2>
-            <p class="intro">المادة تتغير باستمرار من حولنا! بعض التغييرات تنتج مواد جديدة، وبعضها لا تنتج. لنتعرف على نوعي التغييرات للمادة.</p>
+            <p class="intro">المادة تتغير باستمرار من حولنا! لكن بعض التغييرات تنتج مواد جديدة، وبعضها لا تنتج. لنتعرف على نوعي التغييرات للمادة.</p>
         </div>
         
         <div class="timeline">
@@ -460,14 +286,8 @@
                 </div>
                 <div class="step-content">
                     <h3 class="content-title">التعريف</h3>
-                    <p class="content-text">هو التغير الذي يحدث للمادة، فيغير حجمها أو شكلها أو حالتها، ولا ينتج عنه مواد جديدة.</p>
+                    <p class="content-text">هو التغير الذي يحدث للمادة، فيغير حجمها أو شكلها أو حالتها، ولا ينتج عنه مواد جديدة، فقد تتغير بعض خصائص المادة بسبب التغير الفيزيائي.</p>
                     <p class="content-text"><strong>التغير العكسي:</strong> وصف للتغير الفيزيائي؛ لأن إعادة المادة كما كانت من قبل ممكنة.</p>
-                    
-                    <div class="fun-fact">
-                        <div class="fun-fact-icon"><i class="fas fa-lightbulb"></i></div>
-                        <h4 class="fun-fact-title">هل تعلم؟</h4>
-                        <p class="fun-fact-text">يمر الماء بثلاث حالات فيزيائية: الصلبة (الثلج)، والسائلة، والغازية (البخار)!</p>
-                    </div>
                 </div>
                 <div class="connector"></div>
                 <div class="timeline-dot"></div>
@@ -484,12 +304,6 @@
                     <h3 class="content-title">التعريف</h3>
                     <p class="content-text">هو التغير الذي تنتج عنه مواد جديدة تختلف عن المادة الأصلية في خصائصها.</p>
                     <p class="content-text"><strong>التغير اللاعكسي:</strong> وصف للتغير الكيميائي؛ لأنه لا يمكن إعادة المادة إلى حالتها الأصلية.</p>
-                    
-                    <div class="fun-fact">
-                        <div class="fun-fact-icon"><i class="fas fa-lightbulb"></i></div>
-                        <h4 class="fun-fact-title">هل تعلم؟</h4>
-                        <p class="fun-fact-text">تحدث آلاف التغيرات الكيميائية في جسمك كل ثانية مثل التنفس وهضم الطعام!</p>
-                    </div>
                 </div>
                 <div class="connector"></div>
                 <div class="timeline-dot"></div>
@@ -505,12 +319,13 @@
                 <div class="step-content">
                     <h3 class="content-title">أمثلة من الحياة اليومية</h3>
                     <ul class="content-list">
-                        <li>انصهار مكعبات الجليد وتحولها إلى ماء سائل <i class="fas fa-ice-cube text-info"></i></li>
-                        <li>تبخر الماء عند تسخينه <i class="fas fa-cloud text-info"></i></li>
-                        <li>تكثف بخار الماء عند تعرضه لسطح بارد <i class="fas fa-tint text-info"></i></li>
+                        <li>انصهار مكعبات الجليد وتحولها إلى ماء سائل</li>
+                        <li>تبخر الماء عند تسخينه</li>
+                        <li>تكثف بخار الماء عند تعرضه لسطح بارد</li>
                         <li>انصهار مكعب الزبدة عند تسخينه</li>
-                        <li>طحن مكعب السكر إلى مسحوق ناعم</li>
-                        <li>طي الورقة <i class="fas fa-file-alt text-info"></i></li>
+                        <li>تصلب الزبدة مرة أخرى عند تركها لتبرد</li>
+                        <li>طحن مكعب السكر وتحوله إلى مسحوق ناعم</li>
+                        <li>طي الورقة</li>
                     </ul>
                 </div>
                 <div class="connector"></div>
@@ -527,12 +342,14 @@
                 <div class="step-content">
                     <h3 class="content-title">أمثلة من الحياة اليومية</h3>
                     <ul class="content-list">
-                        <li>قلي أو سلق البيض <i class="fas fa-egg text-warning"></i></li>
-                        <li>حرق الورقة (تتحول إلى رماد) <i class="fas fa-fire text-danger"></i></li>
-                        <li>طهي الطعام <i class="fas fa-utensils text-warning"></i></li>
+                        <li>قلي أو سلق البيض</li>
+                        <li>حرق الورقة (تتحول إلى مادة سوداء)</li>
+                        <li>طهي الطعام</li>
+                        <li>صناعة الأدوية والبلاستيك والأقمشة</li>
                         <li>تعفن الفاكهة والخضار</li>
-                        <li>صدأ الحديد <i class="fas fa-cog text-danger"></i></li>
-                        <li>احتراق الشمعة <i class="fas fa-candy-cane text-warning"></i></li>
+                        <li>صدأ الحديد</li>
+                        <li>احتراق الشمعة</li>
+                        <li>احتراق الخشب</li>
                     </ul>
                 </div>
                 <div class="connector"></div>
@@ -549,10 +366,10 @@
                 <div class="step-content">
                     <h3 class="content-title">كيف نعرف أن التغير كيميائي؟</h3>
                     <ul class="content-list">
-                        <li>تغير في اللون <i class="fas fa-palette"></i></li>
-                        <li>انبعاث رائحة جديدة <i class="fas fa-wind"></i></li>
-                        <li>انبعاث حرارة أو ضوء <i class="fas fa-sun"></i></li>
-                        <li>تصاعد فقاعات غاز <i class="fas fa-air-freshener"></i></li>
+                        <li>تغير في اللون</li>
+                        <li>انبعاث رائحة جديدة</li>
+                        <li>انبعاث حرارة أو ضوء</li>
+                        <li>تصاعد فقاعات غاز</li>
                     </ul>
                 </div>
                 <div class="connector"></div>
@@ -569,8 +386,8 @@
                 <div class="step-content">
                     <h3 class="content-title">نشاط "كيف تتغير الشمعة؟"</h3>
                     <ol class="content-list">
-                        <li>ملاحظة حالة الشمعة قبل إشعال فتيلها</li>
-                        <li>إشعال فتيل الشمعة والانتظار لمدة دقيقتين</li>
+                        <li>ملاحظة حالة الشمعة قبل إشعال فتيلها وقياس طولها</li>
+                        <li>إشعال فتيل الشمعة والانتظار لمدة دقيقتين ثم إطفاؤها</li>
                         <li>ملاحظة التغييرات وتسجيلها</li>
                         <li>الاستنتاج: انصهار الشمعة (تغير فيزيائي) واحتراق الفتيل (تغير كيميائي)</li>
                     </ol>
@@ -588,33 +405,10 @@
                 </div>
                 <div class="step-content">
                     <h3 class="content-title">المقارنة بين النوعين</h3>
-                    
-                    <div class="comparison-table">
-                        <div class="comparison-row header-row">
-                            <div class="comparison-cell">وجه المقارنة</div>
-                            <div class="comparison-cell">التغير الفيزيائي</div>
-                            <div class="comparison-cell">التغير الكيميائي</div>
-                        </div>
-                        <div class="comparison-row">
-                            <div class="comparison-cell">نوع التغير</div>
-                            <div class="comparison-cell">تغير في الشكل أو الحجم أو الحالة</div>
-                            <div class="comparison-cell">تغير في تركيب المادة</div>
-                        </div>
-                        <div class="comparison-row">
-                            <div class="comparison-cell">المواد الناتجة</div>
-                            <div class="comparison-cell">لا تنتج مواد جديدة</div>
-                            <div class="comparison-cell">تنتج مواد جديدة</div>
-                        </div>
-                        <div class="comparison-row">
-                            <div class="comparison-cell">إمكانية العودة</div>
-                            <div class="comparison-cell">تغير عكسي</div>
-                            <div class="comparison-cell">تغير لاعكسي</div>
-                        </div>
-                        <div class="comparison-row">
-                            <div class="comparison-cell">مثال</div>
-                            <div class="comparison-cell">انصهار الجليد</div>
-                            <div class="comparison-cell">احتراق الورق</div>
-                        </div>
+                    <div class="content-text">
+                        <p><strong>التغيرات الفيزيائية:</strong> تغير شكل المادة أو حجمها أو حالتها فقط، تغير عكسي، لا تنتج مواد جديدة.</p>
+                        <p><strong>التغيرات الكيميائية:</strong> تنتج مواد جديدة تختلف في خصائصها عن المواد الأصلية، تغير لاعكسي.</p>
+                        <p>كلا النوعين موجود في حياتنا اليومية!</p>
                     </div>
                 </div>
                 <div class="connector"></div>
@@ -622,26 +416,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // إضافة تأثير الظهور التدريجي عند التمرير
-            const steps = document.querySelectorAll('.step');
-            
-            function checkVisibility() {
-                steps.forEach(step => {
-                    const rect = step.getBoundingClientRect();
-                    const isVisible = (rect.top <= window.innerHeight * 0.8);
-                    
-                    if (isVisible) {
-                        step.classList.add('visible');
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', checkVisibility);
-            checkVisibility(); // للتحقق من العناصر المرئية عند التحميل
-        });
-    </script>
 </body>
 </html>
