@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التغيرات الفيزيائية والكيميائية للمادة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .infographic {
+            width: 800px;
+            background-color: white;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 40px;
+            margin: 30px auto;
+        }
+        
+        .header {
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #8a2be2, #5d4ef5, #4facfe);
+            background-size: 200% 200%;
+            animation: gradient-animation 15s ease infinite;
+            color: white;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .intro {
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 0 40px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: #e0e0e0;
+            top: 0;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        .step {
+            position: relative;
+            margin-bottom: 40px;
+            min-height: 150px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Content positioning */
+        .step:nth-child(odd) .step-content {
+            margin-right: 55%;
+            text-align: right;
+        }
+        
+        .step:nth-child(even) .step-content {
+            margin-left: 55%;
+            text-align: left;
+        }
+        
+        .step-bubble {
+            width: 140px;
+            height: 140px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .step-bubble:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .step-bubble::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            top: -50%;
+            left: -50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .step-bubble:hover::after {
+            opacity: 1;
+        }
+        
+        .step:nth-child(odd) .step-bubble {
+            left: calc(50% + 20px);
+        }
+        
+        .step:nth-child(even) .step-bubble {
+            right: calc(50% + 20px);
+        }
+        
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+        
+        .step-bubble:hover .step-icon {
+            transform: scale(1.2) rotate(5deg);
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .step-icon i {
+            font-size: 24px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .step-bubble:hover .step-icon i {
+            transform: scale(1.1);
+        }
+        
+        .step-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+        
+        .step-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+        
+        .step-content {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            width: 45%;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .content-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        
+        .content-text {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 12px;
+        }
+        
+        .content-list {
+            padding-right: 20px;
+            margin-bottom: 12px;
+            list-style-position: inside;
+        }
+        
+        .step:nth-child(even) .content-list {
+            padding-right: 0;
+            padding-left: 20px;
+        }
+        
+        .content-list li {
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Colors for step bubbles */
+        .step:nth-child(1) .step-bubble { background-color: #4facfe; }
+        .step:nth-child(2) .step-bubble { background-color: #ff5e7d; }
+        .step:nth-child(3) .step-bubble { background-color: #a6c1ee; }
+        .step:nth-child(4) .step-bubble { background-color: #fdcb6e; }
+        .step:nth-child(5) .step-bubble { background-color: #ff9a9e; }
+        .step:nth-child(6) .step-bubble { background-color: #c3cfe2; }
+        .step:nth-child(7) .step-bubble { background-color: #a8e063; }
+        
+        /* Timeline dots */
+        .timeline-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: white;
+            border: 3px solid #e0e0e0;
+            top: 65px;
+            right: 50%;
+            transform: translateX(50%);
+            z-index: 2;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 rgba(79, 172, 254, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(79, 172, 254, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(79, 172, 254, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(79, 172, 254, 0);
+            }
+        }
+        
+        .step:hover .timeline-dot {
+            background-color: #4facfe;
+            border-color: white;
+        }
+        
+        /* Connector lines */
+        .connector {
+            position: absolute;
+            top: 70px;
+            width: 50px;
+            height: 3px;
+            background-color: #e0e0e0;
+            z-index: 1;
+        }
+        
+        .step:nth-child(odd) .connector {
+            right: 50%;
+        }
+        
+        .step:nth-child(even) .connector {
+            left: 50%;
+        }
+        
+        /* تنسيق لجدول المقارنة */
+        .comparison-table {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 15px 0;
+        }
+        
+        .comparison-row {
+            display: flex;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+        
+        .header-row {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        
+        .comparison-cell {
+            flex: 1;
+            padding: 10px 12px;
+            font-size: 13px;
+        }
+        
+        .comparison-row:nth-child(even) {
+            background-color: #fafafa;
+        }
+        
+        .comparison-row:hover {
+            background-color: rgba(79, 172, 254, 0.05);
+        }
+        
+        /* تنسيق بطاقات "هل تعلم؟" */
+        .fun-fact {
+            background-color: #fff4e6;
+            border-right: 4px solid #fd7e14;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            position: relative;
+        }
+        
+        .fun-fact-icon {
+            position: absolute;
+            top: -12px;
+            right: 12px;
+            width: 24px;
+            height: 24px;
+            background-color: #fd7e14;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+        
+        .fun-fact-title {
+            margin-top: 3px;
+            margin-bottom: 6px;
+            color: #e67700;
+            font-size: 15px;
+        }
+        
+        .fun-fact-text {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 850px) {
+            .infographic {
+                width: 95%;
+            }
+            
+            .timeline::before {
+                right: 40px;
+                transform: none;
+            }
+            
+            .step:nth-child(odd) .step-content,
+            .step:nth-child(even) .step-content {
+                margin-right: 90px;
+                margin-left: 0;
+                width: calc(100% - 90px);
+                text-align: right;
+            }
+            
+            .step:nth-child(odd) .step-bubble,
+            .step:nth-child(even) .step-bubble {
+                right: 0;
+                left: auto;
+                width: 80px;
+                height: 80px;
+            }
+            
+            .step-icon {
+                width: 30px;
+                height: 30px;
+                margin-bottom: 5px;
+            }
+            
+            .step-icon i {
+                font-size: 16px;
+            }
+            
+            .step-title {
+                font-size: 12px;
+                margin-bottom: 2px;
+            }
+            
+            .step-subtitle {
+                font-size: 10px;
+            }
+            
+            .timeline-dot {
+                right: 40px;
+                transform: none;
+            }
+            
+            .connector {
+                display: none;
+            }
+            
+            .comparison-row {
+                flex-direction: column;
+            }
+            
+            .comparison-cell {
+                padding: 8px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infographic">
+        <div class="header">
+            <h1 class="title">التغيرات الفيزيائية والكيميائية للمادة</h1>
+            <h2 class="subtitle">كيف تتغير المواد من حولنا؟</h2>
+            <p class="intro">المادة تتغير باستمرار من حولنا! بعض التغييرات تنتج مواد جديدة، وبعضها لا تنتج. لنتعرف على نوعي التغييرات للمادة.</p>
+        </div>
+        
+        <div class="timeline">
+            <!-- Step 1: Physical Changes Definition -->
+            <div class="step">
+                <div class="step-bubble">
+                    <div class="step-icon"><i class="fas fa-sync-alt"></i></div>
+                    <div class="step-title">التغيرات الفيزيائية</div>
+                    <div class="step-subtitle">Physical Changes</div>
+                </div>
+                <div class="step-content">
+                    <h3 class="content-title">التعريف</h3>
+                    <p class="content-text">هو التغير الذي يحدث للمادة، فيغير حجمها أو شكلها أو حالتها، ولا ينتج عنه مواد جديدة.</p>
+                    <p class="content-text"><strong>التغير العكسي:</strong> وصف للتغير الفيزيائي؛ لأن إعادة المادة كما كانت من قبل ممكنة.</p>
+                    
+                    <div class="fun-fact">
+                        <div class="fun-fact-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h4 class="fun-fact-title">هل تعلم؟</h4>
+                        <p class="fun-fact-text">يمر الماء بثلاث حالات فيزيائية: الصلبة (الثلج)، والسائلة، والغازية (البخار)!</p>
+                    </div>
+                </div>
+                <div class="connector"></div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <!-- Step 2: Chemical Changes Definition -->
+            <div class="step">
+                <div class="step-bubble">
+                    <div class="step-icon"><i class="fas fa-flask"></i></div>
+                    <div class="step-title">التغيرات الكيميائية</div>
+                    <div class="step-subtitle">Chemical Changes</div>
+                </div>
+                <div class="step-content">
+                    <h3 class="content-title">التعريف</h3>
+                    <p class="content-text">هو التغير الذي تنتج عنه مواد جديدة تختلف عن المادة الأصلية في خصائصها.</p>
+                    <p class="content-text"><strong>التغير اللاعكسي:</strong> وصف للتغير الكيميائي؛ لأنه لا يمكن إعادة المادة إلى حالتها الأصلية.</p>
+                    
+                    <div class="fun-fact">
+                        <div class="fun-fact-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h4 class="fun-fact-title">هل تعلم؟</h4>
+                        <p class="fun-fact-text">تحدث آلاف التغيرات الكيميائية في جسمك كل ثانية مثل التنفس وهضم الطعام!</p>
+                    </div>
+                </div>
+                <div class="connector"></div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <!-- Step 3: Physical Changes Examples -->
+            <div class="step">
+                <div class="step-bubble">
+                    <div class="step-icon"><i class="fas fa-snowflake"></i></div>
+                    <div class="step-title">أمثلة على</div>
+                    <div class="step-subtitle">التغيرات الفيزيائية</div>
+                </div>
+                <div class="step-content">
+                    <h3 class="content-title">أمثلة من الحياة اليومية</h3>
+                    <ul class="content-list">
+                        <li>انصهار مكعبات الجليد وتحولها إلى ماء سائل <i class="fas fa-ice-cube text-info"></i></li>
+                        <li>تبخر الماء عند تسخينه <i class="fas fa-cloud text-info"></i></li>
+                        <li>تكثف بخار الماء عند تعرضه لسطح بارد <i class="fas fa-tint text-info"></i></li>
+                        <li>انصهار مكعب الزبدة عند تسخينه</li>
+                        <li>طحن مكعب السكر إلى مسحوق ناعم</li>
+                        <li>طي الورقة <i class="fas fa-file-alt text-info"></i></li>
+                    </ul>
+                </div>
+                <div class="connector"></div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <!-- Step 4: Chemical Changes Examples -->
+            <div class="step">
+                <div class="step-bubble">
+                    <div class="step-icon"><i class="fas fa-fire"></i></div>
+                    <div class="step-title">أمثلة على</div>
+                    <div class="step-subtitle">التغيرات الكيميائية</div>
+                </div>
+                <div class="step-content">
+                    <h3 class="content-title">أمثلة من الحياة اليومية</h3>
+                    <ul class="content-list">
+                        <li>قلي أو سلق البيض <i class="fas fa-egg text-warning"></i></li>
+                        <li>حرق الورقة (تتحول إلى رماد) <i class="fas fa-fire text-danger"></i></li>
+                        <li>طهي الطعام <i class="fas fa-utensils text-warning"></i></li>
+                        <li>تعفن الفاكهة والخضار</li>
+                        <li>صدأ الحديد <i class="fas fa-cog text-danger"></i></li>
+                        <li>احتراق الشمعة <i class="fas fa-candy-cane text-warning"></i></li>
+                    </ul>
+                </div>
+                <div class="connector"></div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <!-- Step 5: Chemical Changes Evidence -->
+            <div class="step">
+                <div class="step-bubble">
+                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                    <div class="step-title">دلائل حدوث</div>
+                    <div class="step-subtitle">التغير الكيميائي</div>
+                </div>
+                <div class="step-content">
+                    <h3 class="content-title">كيف نعرف أن التغير كيميائي؟</h3>
+                    <ul class="content-list">
+                        <li>تغير في اللون <i class="fas fa-palette"></i></li>
+                        <li>انبعاث رائحة جديدة <i class="fas fa-wind"></i></li>
+                        <li>انبعاث حرارة أو ضوء <i class="fas fa-sun"></i></li>
+                        <li>تصاعد فقاعات غاز <i class="fas fa-air-freshener"></i></li>
+                    </ul>
+                </div>
+                <div class="connector"></div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <!-- Step 6: Activity -->
+            <div class="step">
+                <div class="step-bubble">
+                    <div class="step-icon"><i class="fas fa-flask"></i></div>
+                    <div class="step-title">نشاط تطبيقي</div>
+                    <div class="step-subtitle">للطلاب</div>
+                </div>
+                <div class="step-content">
+                    <h3 class="content-title">نشاط "كيف تتغير الشمعة؟"</h3>
+                    <ol class="content-list">
+                        <li>ملاحظة حالة الشمعة قبل إشعال فتيلها</li>
+                        <li>إشعال فتيل الشمعة والانتظار لمدة دقيقتين</li>
+                        <li>ملاحظة التغييرات وتسجيلها</li>
+                        <li>الاستنتاج: انصهار الشمعة (تغير فيزيائي) واحتراق الفتيل (تغير كيميائي)</li>
+                    </ol>
+                </div>
+                <div class="connector"></div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <!-- Step 7: Summary -->
+            <div class="step">
+                <div class="step-bubble">
+                    <div class="step-icon"><i class="fas fa-book"></i></div>
+                    <div class="step-title">الخلاصة</div>
+                    <div class="step-subtitle">Summary</div>
+                </div>
+                <div class="step-content">
+                    <h3 class="content-title">المقارنة بين النوعين</h3>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row header-row">
+                            <div class="comparison-cell">وجه المقارنة</div>
+                            <div class="comparison-cell">التغير الفيزيائي</div>
+                            <div class="comparison-cell">التغير الكيميائي</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">نوع التغير</div>
+                            <div class="comparison-cell">تغير في الشكل أو الحجم أو الحالة</div>
+                            <div class="comparison-cell">تغير في تركيب المادة</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">المواد الناتجة</div>
+                            <div class="comparison-cell">لا تنتج مواد جديدة</div>
+                            <div class="comparison-cell">تنتج مواد جديدة</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">إمكانية العودة</div>
+                            <div class="comparison-cell">تغير عكسي</div>
+                            <div class="comparison-cell">تغير لاعكسي</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">مثال</div>
+                            <div class="comparison-cell">انصهار الجليد</div>
+                            <div class="comparison-cell">احتراق الورق</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="connector"></div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // إضافة تأثير الظهور التدريجي عند التمرير
+            const steps = document.querySelectorAll('.step');
+            
+            function checkVisibility() {
+                steps.forEach(step => {
+                    const rect = step.getBoundingClientRect();
+                    const isVisible = (rect.top <= window.innerHeight * 0.8);
+                    
+                    if (isVisible) {
+                        step.classList.add('visible');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkVisibility);
+            checkVisibility(); // للتحقق من العناصر المرئية عند التحميل
+        });
+    </script>
+</body>
+</html>
